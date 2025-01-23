@@ -55,9 +55,11 @@ ip-address-tracker/
 │   ├── pages/
 │   │   ├── api/
 │   │   ├── _app.tsx
+│   │   ├── _document.tsx
 │   │   └── index.tsx
 │   ├── styles/
-│   │   └── theme.ts
+│   │   ├── theme.ts
+│   │   └── globals.css
 │   └── types/
 │       └── index.ts
 ├── public/
