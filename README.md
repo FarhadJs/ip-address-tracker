@@ -2,6 +2,16 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
+## Preview
+
+### Desktop View (1440px)
+
+![Desktop Preview](/desktop-preview.png)
+
+### Mobile View (375px)
+
+![Mobile Preview](/mobile-preview.png)
+
 ## Getting Started
 
 First, run the development server:
@@ -33,7 +43,7 @@ To run this project, you will need to add the following environment variables to
 1. Copy the example environment file:
 
 ```bash
-cp .env.example .env.local
+cp .env.example
 ```
 
 ## Learn More
