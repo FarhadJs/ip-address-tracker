@@ -1,62 +1,66 @@
 # IP Address Tracker
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+A web application built with Next.js that allows users to track IP addresses and domains, showing their geographical location on a map along with additional information.
 
 ## Preview
 
 ### Desktop View (1440px)
 
-![Desktop Preview](/desktop-preview.png)
+![Desktop Preview](/public/images/desktop-preview.png)
 
 ### Mobile View (375px)
 
-![Mobile Preview](/mobile-preview.png)
+![Mobile Preview](/public/images/mobile-preview.png)
+
+## Features
+
+- View the optimal layout for each page depending on device's screen size
+- See hover states for all interactive elements on the page
+- Search for any IP addresses or domains
+- View key information about searched IP/domain including:
+  - IP Address
+  - Location
+  - Timezone
+  - ISP
+- Interactive map showing the location
+- Fully responsive design
+- Server-side API handling for secure API key management
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org) - React Framework
+- [TypeScript](https://www.typescriptlang.org/) - For type safety
+- [Material-UI (MUI)](https://mui.com/) - UI Components
+- [React Query](https://tanstack.com/query/latest) - Data Fetching
+- [React Hook Form](https://react-hook-form.com/) - Form Management
+- [MapLibre GL](https://maplibre.org/) - Maps Integration
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/ip-address-tracker.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env.local file:
-
-1. Copy the example environment file:
+## Project Structure
 
 ```bash
-cp .env.example
+ip-address-tracker/
+├── src/
+│   ├── components/
+│   │   ├── InfoPanel/
+│   │   ├── Map/
+│   │   └── SearchBar/
+│   ├── pages/
+│   │   ├── api/
+│   │   ├── _app.tsx
+│   │   └── index.tsx
+│   ├── styles/
+│   │   └── theme.ts
+│   └── types/
+│       └── index.ts
+├── public/
+│   └── images/
+└── ...config files
 ```
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
