@@ -8,7 +8,7 @@ import { Map } from "@/components/Map";
 import type { IPAddressData } from "@/types";
 
 const HeaderBackground = styled(Box)(({ theme }) => ({
-  background: 'url("/pattern-bg.png") no-repeat center center',
+  background: 'url("/images/pattern-bg.png") no-repeat center center',
   backgroundSize: "cover",
   height: "300px",
   padding: theme.spacing(3),
