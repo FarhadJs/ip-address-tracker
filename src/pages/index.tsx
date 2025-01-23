@@ -31,6 +31,12 @@ const InfoContainer = styled(Box)(({ theme }) => ({
   maxWidth: "1110px",
   zIndex: 2,
   padding: theme.spacing(0, 2),
+  [theme.breakpoints.down("md")]: {
+    fontSize: "10px",
+    padding: theme.spacing(0, 1),
+    marginBottom: theme.spacing(0.5),
+    bottom: "-250px",
+  },
 }));
 
 const LoadingContainer = styled(Box)({

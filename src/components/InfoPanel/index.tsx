@@ -1,32 +1,82 @@
+// src/components/InfoPanel/index.tsx
 import { styled } from "@mui/material/styles";
 import { Paper, Box, Typography } from "@mui/material";
 import type { InfoPanelProps } from "@/types";
 
 const InfoBox = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
+  padding: theme.spacing(5),
   borderRadius: "15px",
   backgroundColor: "white",
   display: "flex",
   justifyContent: "space-between",
-  [theme.breakpoints.down("sm")]: {
+  boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.1)",
+
+  [theme.breakpoints.down("md")]: {
     flexDirection: "column",
+    alignItems: "center",
+    padding: theme.spacing(1),
+    gap: theme.spacing(1),
     textAlign: "center",
-    gap: theme.spacing(2),
-    padding: theme.spacing(2),
   },
 }));
 
 const InfoSection = styled(Box)(({ theme }) => ({
   flex: 1,
-  padding: "0 20px",
-  "&:not(:last-child)": {
-    borderRight: `1px solid ${theme.palette.secondary.light}`,
+  padding: theme.spacing(0, 3),
+  position: "relative",
+
+  "&:not(:last-child)::after": {
+    content: '""',
+    position: "absolute",
+    right: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
+    height: "75%",
+    width: "1px",
+    backgroundColor: theme.palette.divider,
   },
-  [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(1),
-    "&:not(:last-child)": {
-      borderRight: "none",
+
+  [theme.breakpoints.down("md")]: {
+    padding: theme.spacing(1.5),
+    width: "100%",
+
+    "&:not(:last-child)::after": {
+      display: "none",
     },
+
+    "&:not(:last-child)": {
+      borderBottom: `1px solid ${theme.palette.divider}`,
+      paddingBottom: theme.spacing(2),
+    },
+  },
+}));
+
+const InfoLabel = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  textTransform: "uppercase",
+  letterSpacing: "1px",
+  fontSize: "12px",
+  marginBottom: theme.spacing(1),
+  fontWeight: 700,
+
+  [theme.breakpoints.down("md")]: {
+    fontSize: "10px",
+    marginBottom: theme.spacing(0.5),
+  },
+}));
+
+const InfoValue = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.primary,
+  fontSize: "26px",
+  fontWeight: 500,
+  lineHeight: 1.2,
+
+  [theme.breakpoints.down("md")]: {
+    fontSize: "20px",
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "18px",
   },
 }));
 
@@ -34,36 +84,29 @@ export const InfoPanel = ({ data }: InfoPanelProps) => {
   return (
     <InfoBox elevation={3}>
       <InfoSection>
-        <Typography variant="caption" color="secondary.main" gutterBottom>
-          IP ADDRESS
-        </Typography>
-        <Typography variant="h6" fontWeight={500}>
-          {data.ip}
-        </Typography>
+        <InfoLabel>IP Address</InfoLabel>
+        <InfoValue>{data.ip || "-"}</InfoValue>
       </InfoSection>
+
       <InfoSection>
-        <Typography variant="caption" color="secondary.main" gutterBottom>
-          LOCATION
-        </Typography>
-        <Typography variant="h6" fontWeight={500}>
-          {`${data.location.city}, ${data.location.country}`}
-        </Typography>
+        <InfoLabel>Location</InfoLabel>
+        <InfoValue>
+          {data.location.city && data.location.country
+            ? `${data.location.city}, ${data.location.country}`
+            : "-"}
+        </InfoValue>
       </InfoSection>
+
       <InfoSection>
-        <Typography variant="caption" color="secondary.main" gutterBottom>
-          TIMEZONE
-        </Typography>
-        <Typography variant="h6" fontWeight={500}>
-          UTC {data.location.timezone}
-        </Typography>
+        <InfoLabel>Timezone</InfoLabel>
+        <InfoValue>
+          {data.location.timezone ? `UTC ${data.location.timezone}` : "-"}
+        </InfoValue>
       </InfoSection>
+
       <InfoSection>
-        <Typography variant="caption" color="secondary.main" gutterBottom>
-          ISP
-        </Typography>
-        <Typography variant="h6" fontWeight={500}>
-          {"\n" + data.isp + "\n"}
-        </Typography>
+        <InfoLabel>ISP</InfoLabel>
+        <InfoValue>{data.isp || "-"}</InfoValue>
       </InfoSection>
     </InfoBox>
   );
